@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accordion component demo | SoleStyle</title>
+  <!-- Standalone page: only needs accordion.css and accordion.js, nothing else from the store -->
+  <link rel="stylesheet" href="accordion.css">
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff7ef;color:#16120f;line-height:1.6}
+    main{width:min(860px,100% - 2.5rem);margin:0 auto;padding:2rem 0 4rem}
+    h1{font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 .4rem}
+    h2{font-size:1.3rem;margin:2.5rem 0 .3rem}
+    .note{color:#5e554e;margin:0 0 1rem}
+    #log{margin-top:1rem;padding:1rem;border-radius:12px;background:#16120f;color:#ffe9d6;font:.85rem/1.6 ui-monospace,Consolas,monospace;min-height:3.5rem}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Accordion component demo</h1>
+    <p class="note">Try the mouse, then the keyboard: Tab to a heading, Enter or Space to open, Up/Down arrows to move, Home/End to jump.</p>
+
+    <h2>1. One panel open at a time (first panel open at start)</h2>
+    <div class="acc" data-accordion data-open="0">
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">What is an accordion?</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>A list of headings that each show or hide a block of content. It saves space and keeps long pages easy to scan.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Is it accessible?</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>Yes. Headings are real buttons, state is announced with aria-expanded, and the whole thing works with the keyboard.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">What if JavaScript fails?</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>All panels stay visible, so the content is never hidden from the reader.</p></div></div></div>
+    </div>
+
+    <h2>2. Several panels open, with "Expand all"</h2>
+    <div class="acc" data-accordion data-multiple="true" data-controls="true">
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Sizing</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>UK sizes 6 to 11. Between sizes? Go up one.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Delivery</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>3 to 6 working days. Free above $50.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Returns</button></h3>
+        <div class="acc-panel"><div class="acc-inner"><p>30 days for unworn pairs.</p></div></div></div>
+    </div>
+
+    <h2>3. Custom event</h2>
+    <p class="note">Every open or close fires an <code>accordion:toggle</code> event. Open any panel above:</p>
+    <div id="log" aria-live="polite">Waiting for a click...</div>
+  </main>
+
+  <script src="accordion.js"></script>
+  <script>
+    Accordion.init();
+    document.addEventListener('accordion:toggle', function (e) {
+      document.getElementById('log').textContent =
+        '"' + e.detail.trigger.textContent.trim() + '" (item ' + e.detail.index + ') was ' + (e.detail.open ? 'opened' : 'closed');
+    });
+  </script>
+</body>
+</html>

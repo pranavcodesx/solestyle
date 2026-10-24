@@ -114,6 +114,7 @@
     <article class="feature"><span class="ficon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6 3-6"/></svg></span><div><h3>Premium Quality</h3><p>We offer only the best quality sneakers from top brands.</p></div></article>
     <article class="feature"><span class="ficon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div><h3>Free Shipping</h3><p>Enjoy free shipping on all orders above $50.</p></div></article>
     <article class="feature"><span class="ficon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-4L4 9M4 4v5h5M4 13a8 8 0 0 0 14 4l2-2M20 20v-5h-5"/></svg></span><div><h3>Easy Returns</h3><p>Hassle-free returns within 30 days of purchase.</p></div></article></div></div></section>`;
+  const faqSection = () => `<section class="section faq-home" aria-labelledby="faqH"><div class="wrap"><p class="eyebrow">Got questions?</p><h2 id="faqH">Quick answers</h2>${accordion(FAQ.slice(0, 4), 'data-open="0"')}<p style="margin-top:1rem"><a class="link" href="#/contact">More questions? Visit Contact →</a></p></div></section>`;
   const newsletter = () => `<section class="section"><div class="wrap"><form class="news" data-form="news" novalidate>
     <span class="ficon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
     <div><p class="eyebrow">Stay Updated</p><h2>Join Our Newsletter</h2><p>Get the latest updates on new arrivals, special offers and more.</p></div>
@@ -131,7 +132,7 @@
       <div class="grid-cards">${PRODUCTS.slice(0, 4).map(card).join('')}</div></div></section>
     <section class="section"><div class="wrap"><div class="promo"><div class="promo-shoe">${img(P(6))}</div>
       <div><p class="eyebrow">Limited Time Offer</p><h2>New Sneaker Collection</h2><p>Get up to 40% off on our latest collection. Don't miss out!</p></div><a class="btn btn-dark" href="#/shop">Shop Now <span aria-hidden="true">→</span></a></div></div></section>
-    ${features()}${newsletter()}`;
+    ${features()}${faqSection()}${newsletter()}`;
 
   const F = { q: '', cat: 'All', sort: 'pop' };
   const list = () => {
@@ -295,6 +296,8 @@
       <div class="tiles">${[1, 2, 6, 8].map(id => { const p = P(id); return `<a class="tile" href="#/product/${p.id}" aria-label="View details of ${esc(p.name)}">${img(p)}<span><b>${esc(p.name)}</b><small>${money(p.price)}</small></span></a>`; }).join('')}</div></section>
     <section class="cta-band"><div><h2>Ready to find your pair?</h2><p>Free shipping above $50. Easy returns for 30 days.</p></div><a class="btn btn-primary" href="#/shop">Shop Sneakers <span aria-hidden="true">→</span></a></section></div>`;
 
+  /* Builds the markup that accordion.js enhances (see accordion.js for options) */
+  const accordion = (items, attrs = '') => `<div class="acc" data-accordion ${attrs}>${items.map(([q, a]) => `<div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">${q}</button></h3><div class="acc-panel"><div class="acc-inner"><p class="muted">${a}</p></div></div></div>`).join('')}</div>`;
   let CS = null;
   const FAQ = [
     ['How do I find my size?', 'Our sizes are UK sizes (6 to 11). If you are between sizes, we suggest going up one size for extra comfort, especially for running shoes.'],
@@ -312,7 +315,7 @@
       <p class="msg" role="status"></p><div><button class="btn btn-primary" type="submit">Send message</button></div></form>`}
       <aside class="ct-side"><div class="help"><h3>Need an answer faster?</h3><p>Most questions are answered below. For orders, check your account.</p><a class="btn btn-primary" href="#/account" data-act="orders">Track my orders</a></div>
         <div class="panel"><h3>Quick links</h3><ul class="qlinks"><li><a href="#/shop">Browse sneakers</a></li><li><a href="#/wishlist">My wishlist</a></li><li><a href="#/cart">Shopping bag</a></li></ul></div></aside></div>
-    <section class="faq" aria-labelledby="faqT"><p class="eyebrow">FAQ</p><h2 id="faqT">Frequently asked questions</h2>${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p class="muted">${a}</p></details>`).join('')}</section></div>`; };
+    <section class="faq" aria-labelledby="faqT"><p class="eyebrow">FAQ</p><h2 id="faqT">Frequently asked questions</h2>${accordion(FAQ, 'data-multiple="true" data-controls="true"')}</section></div>`; };
 
   /* ---------- Product page ---------- */
   let PT = 'desc', lastP = null, GV = null;
@@ -394,6 +397,7 @@
     const oo = v === 'order' && S.orders.find(x => x.id === arg);
     if (oo && stageOf(oo) < STEPS.length - 1) timer = setInterval(() => render(true), 15000);
     enhance(main);
+    if (window.Accordion) Accordion.init(main); // accessible FAQ accordions
     if (v === 'about') countUp(main);
   }
 
