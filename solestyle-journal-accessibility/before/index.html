@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top">
+  <div class="logo">SoleStyle <span>Journal</span></div>
+  <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+  <div class="nav" id="nav">
+    <a href="#">Home</a>
+    <div class="dd">
+      <a href="#">Guides &#9662;</a>
+      <div class="dd-list"><a href="#">Care</a><a href="#">Sizing</a><a href="#">Fit</a></div>
+    </div>
+    <a href="#">About</a>
+    <div class="sub-btn" onclick="openModal()" tabindex="3">Subscribe</div>
+  </div>
+  <div class="search"><input type="text" id="q" placeholder="Search" oninput="applyFilter()"><span class="s-icon" onclick="applyFilter()">&#128269;</span></div>
+</div>
+
+<div class="hero">
+  <img src="img/hero.svg">
+  <div class="hero-text">
+    <div class="small">FEATURED</div>
+    <h4>The 30 day sneaker care plan</h4>
+    <p>A simple weekly routine that keeps your pairs looking new for years.</p>
+    <a href="#" class="btn">Click here</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <h2>Latest articles</h2>
+  <div class="chips">
+    <div class="chip active" onclick="setCat(this,'all')">All</div>
+    <div class="chip" onclick="setCat(this,'care')">Care</div>
+    <div class="chip" onclick="setCat(this,'sizing')">Sizing</div>
+    <div class="chip" onclick="setCat(this,'guides')">Guides</div>
+  </div>
+  <div class="count" id="count">6 articles</div>
+
+  <div class="grid" id="grid">
+    <div class="card" data-cat="care"><img src="img/a1.svg"><div class="tag">CARE</div><h3>How to clean white leather sneakers safely</h3><p>Soft brush, mild soap and the one thing you should never put in the dryer.</p><a href="#">Read more</a></div>
+    <div class="card" data-cat="sizing"><img src="img/a2.svg"><div class="tag">SIZING</div><h3>Finding your fit in UK sizes 6 to 11</h3><p>Measure at the end of the day and leave a thumb of space at the toe.</p><a href="#">Read more</a></div>
+    <div class="card" data-cat="guides"><img src="img/a3.svg"><div class="tag">GUIDES</div><h3>Running vs lifestyle sneakers: what differs</h3><p>Cushioning, weight and outsole grip explained in plain words.</p><a href="#">Read more</a></div>
+    <div class="card" data-cat="sizing"><img src="img/a4.svg"><div class="tag">SIZING</div><h3>Five lacing patterns that fix fit problems</h3><p>Heel slip, narrow toe box or high arch: there is a lacing fix for each.</p><a href="#">Read more</a></div>
+    <div class="card" data-cat="care"><img src="img/a5.svg"><div class="tag">CARE</div><h3>How to store sneakers so they last longer</h3><p>Shape, airflow and light: three simple rules for your shoe shelf.</p><a href="#">Read more</a></div>
+    <div class="card" data-cat="guides"><img src="img/a6.svg"><div class="tag">GUIDES</div><h3>Break in new sneakers in one week</h3><p>A short plan that avoids blisters and sore heels.</p><a href="#">Read more</a></div>
+  </div>
+
+  <h2>Cleaning methods compared</h2>
+  <table class="tbl">
+    <tr><td><b>Method</b></td><td><b>Best for</b></td><td><b>Time</b></td><td><b>Risk</b></td></tr>
+    <tr><td>Soft brush and soap</td><td>Leather, canvas</td><td>10 min</td><td class="g">Low</td></tr>
+    <tr><td>Magic eraser</td><td>Rubber soles</td><td>5 min</td><td class="y">Medium</td></tr>
+    <tr><td>Washing machine</td><td>Mesh running shoes</td><td>40 min</td><td class="r">High</td></tr>
+  </table>
+
+  <h2>Questions readers ask</h2>
+  <div class="faq"><div class="q" onclick="toggleFaq(this)">How often should I clean my sneakers?</div><div class="a">A light brush after every few wears and a proper clean once a month is enough for most pairs.</div></div>
+  <div class="faq"><div class="q" onclick="toggleFaq(this)">Can I dry them in the sun?</div><div class="a">Dry them in shade with newspaper inside. Direct sun can yellow white soles and crack leather.</div></div>
+  <div class="faq"><div class="q" onclick="toggleFaq(this)">Do insoles change my size?</div><div class="a">Thick insoles can take half a size of room, so try them with the insole you plan to wear.</div></div>
+</div>
+
+<div class="footer">
+  <div>&copy; 2026 SoleStyle Journal</div>
+  <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Contact</a>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="x" onclick="closeModal()">&times;</div>
+    <h3>Weekly care tip</h3>
+    <p>One short sneaker tip in your inbox every Monday.</p>
+    <input type="text" id="email" placeholder="Your email">
+    <div class="btn" onclick="subscribe()">Subscribe</div>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

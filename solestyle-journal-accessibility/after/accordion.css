@@ -1,0 +1,75 @@
+/* ==========================================================
+   Accordion component styles
+   Works with accordion.js. Uses the site's CSS variables
+   (--o, --btn, --line, --shadow) with safe fallbacks so the
+   component also works on its own page.
+   ========================================================== */
+
+/* ---------- Base (no-JS state: everything visible) ---------- */
+.acc{display:grid;gap:.7rem;max-width:820px}
+.acc-item{border:1px solid var(--line,#f0dfce);border-radius:16px;background:#fff;transition:box-shadow .25s,border-color .25s}
+.acc-heading{margin:0;font-size:1rem}
+.acc-trigger{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;
+  min-height:56px;padding:.5rem 1.2rem;border:0;border-radius:16px;background:none;
+  color:inherit;font:inherit;font-weight:600;text-align:left;cursor:pointer
+}
+.acc-trigger:hover{color:var(--btn,#d1460a)}
+/* Spacing is set with margins on the children, not padding on .acc-inner,
+   because padding would stay visible when the panel is collapsed to 0 height. */
+.acc-inner>*{margin:0 1.2rem}
+.acc-inner>:last-child{margin-bottom:1.2rem}
+
+/* ---------- Enhanced state (class added by JS) ---------- */
+.acc.is-ready .acc-item.open{border-color:var(--o,#f26a0f);box-shadow:var(--shadow,0 14px 34px rgba(120,60,10,.15))}
+
+/* Plus icon drawn with two bars; the vertical bar rotates away when open */
+.acc-icon{position:relative;flex:none;width:18px;height:18px}
+.acc-icon::before,.acc-icon::after{
+  content:"";position:absolute;left:0;top:50%;width:100%;height:2px;margin-top:-1px;
+  border-radius:2px;background:var(--btn,#d1460a);transition:transform .3s
+}
+.acc-icon::after{transform:rotate(90deg)}
+.acc-item.open .acc-icon::after{transform:rotate(0)}
+
+/* Fallback for browsers without grid-row animation: simple show/hide */
+.acc.is-ready .acc-panel{display:none}
+.acc.is-ready .acc-item.open .acc-panel{display:block}
+
+/* Smooth height animation (0fr -> 1fr). Closed panels are visibility:hidden so
+   links inside them cannot be reached with the Tab key. */
+@supports (grid-template-rows:0fr){
+  .acc.is-ready .acc-panel,
+  .acc.is-ready .acc-item.open .acc-panel{display:grid}
+  .acc.is-ready .acc-panel{
+    grid-template-rows:0fr;visibility:hidden;
+    transition:grid-template-rows .3s ease,visibility 0s .3s
+  }
+  .acc.is-ready .acc-item.open .acc-panel{
+    grid-template-rows:1fr;visibility:visible;
+    transition:grid-template-rows .3s ease,visibility 0s
+  }
+  .acc.is-ready .acc-inner{min-height:0;overflow:hidden}
+}
+
+/* ---------- Expand / collapse all ---------- */
+.acc-tools{display:flex;justify-content:flex-end;max-width:820px;margin-bottom:.6rem}
+.acc-all{
+  min-height:44px;padding:.4rem 1rem;border:0;border-radius:99px;background:none;
+  color:var(--btn,#d1460a);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px
+}
+.acc-all:hover{background:var(--tint,#ffe9d6)}
+
+/* ---------- Focus and small screens ---------- */
+.acc-trigger:focus-visible,.acc-all:focus-visible{outline:3px solid var(--ink,#16120f);outline-offset:2px}
+@media (max-width:559px){
+  .acc-trigger{padding-inline:1rem}
+  .acc-inner>*{margin-inline:1rem}
+  .acc-inner>:last-child{margin-bottom:1rem}
+}
+
+/* ---------- Respect "reduce motion" ---------- */
+@media (prefers-reduced-motion:reduce){
+  .acc-item,.acc-icon::before,.acc-icon::after,.acc.is-ready .acc-panel{transition:none!important}
+}

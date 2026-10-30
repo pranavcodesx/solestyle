@@ -1,0 +1,183 @@
+{
+ "before": {
+  "tabStops": [
+   "div: Subscribe",
+   "a: Home",
+   "a: Guides ▾",
+   "a: About",
+   "input[text]: Search",
+   "a: Click here",
+   "a: Read more",
+   "a: Read more",
+   "a: Read more",
+   "a: Read more",
+   "a: Read more",
+   "a: Read more",
+   "a: Privacy",
+   "a: Terms",
+   "a: Contact"
+  ],
+  "clickOnly": [
+   "div.menu-btn: ☰",
+   "div.sub-btn: Subscribe",
+   "span.s-icon: 🔍",
+   "div.chip active: All",
+   "div.chip: Care",
+   "div.chip: Sizing",
+   "div.chip: Guides",
+   "div.q: How often should I c",
+   "div.q: Can I dry them in th",
+   "div.q: Do insoles change my",
+   "div.x: ×",
+   "div.btn: Subscribe"
+  ],
+  "clickOnlyUnfocusable": 11,
+  "totalClickable": 12,
+  "focusOutline": "none",
+  "dropdownOnFocus": "none",
+  "modalOpensWithEnter": false,
+  "modalOpenByMouse": true,
+  "focusAfterModalOpen": "div: Subscribe",
+  "modalClosesWithEsc": false,
+  "errorText": "Invalid",
+  "errorLinked": false,
+  "liveRegion": 0,
+  "countText": "6 articles",
+  "smallTargets": 20,
+  "interactiveCount": 23,
+  "mobileMenuBtnFocusable": false,
+  "mobileHScroll": false,
+  "zoomBlocked": true,
+  "reflow320": {
+   "hScroll": false,
+   "scrollWidth": 320
+  }
+ },
+ "after": {
+  "tabStops": [
+   "a: Skip to main content",
+   "a: SoleStyle Journal, back to top",
+   "a: Home",
+   "button: Guides",
+   "a: Questions",
+   "input[search]: Search articles",
+   "button: Search",
+   "button: Subscribe",
+   "a: Start the care plan",
+   "button: All",
+   "button: Care",
+   "button: Sizing",
+   "button: Guides",
+   "a: How to clean white leather sneakers sa",
+   "a: Finding your fit in UK sizes 6 to 11",
+   "a: Running vs lifestyle sneakers: what di",
+   "a: Five lacing patterns that fix fit prob",
+   "a: How to store sneakers so they last lon",
+   "a: Break in new sneakers in one week",
+   "div: Cleaning methods table, scrollable",
+   "button: How often should I clean my sneakers?",
+   "button: Can I dry them in the sun?",
+   "button: Do insoles change my size?",
+   "a: Privacy",
+   "a: Terms",
+   "a: Contact"
+  ],
+  "tabStopCount": 26,
+  "firstTabStop": "a: Skip to main content",
+  "skipVisibleOnFocus": true,
+  "afterSkipNextStop": "a: Start the care plan",
+  "focusOutline": "solid 3px",
+  "submenuOpen": "true",
+  "submenuFirstLink": "a: Care",
+  "submenuEsc": {
+   "expanded": "false",
+   "focus": "button: Guides"
+  },
+  "submenuClosesOnTabOut": "false",
+  "filterCare": {
+   "pressed": "all=false, care=true, sizing=false, guides=false",
+   "status": "Showing 2 of 6 articles",
+   "visible": 2
+  },
+  "search": {
+   "status": "Showing 1 of 6 articles",
+   "status2": "Showing 1 of 6 articles"
+  },
+  "noResults": {
+   "status": "Showing 0 of 6 articles",
+   "empty": true
+  },
+  "liveRegion": 2,
+  "accordion": "true",
+  "dialog": {
+   "open": true,
+   "focus": "input[email]: email",
+   "trapStaysInside": true,
+   "cycle": [
+    "BUTTON",
+    "cancelSub",
+    "BODY",
+    "closeSub",
+    "email"
+   ],
+   "emptyError": {
+    "text": "Enter your email address, for example name@example.com.",
+    "invalid": "true",
+    "describedby": "emailErr",
+    "focus": "email"
+   },
+   "badError": "This email looks incomplete. Use the format name@example.com.",
+   "success": "Thank you. You are subscribed and your first tip arrives on Monday.",
+   "escCloses": true,
+   "focusReturned": "openSub"
+  },
+  "tree": "- banner:\n  - link \"SoleStyle Journal, back to top\":\n    - /url: \"#main\"\n    - text: SoleStyle Journal\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Home\":\n          - /url: \"#main\"\n      - listitem:\n        - button \"Guides\"\n      - listitem:\n        - link \"Questions\":\n          - /url: \"#faq\"\n  - search:\n    - text: Search articles\n    - searchbox \"Search articles\"\n    - button \"Search\"\n  - button \"Subscribe\"",
+  "landmarks": [
+   "header",
+   "nav[Main]",
+   "form",
+   "main",
+   "section",
+   "section",
+   "section",
+   "section",
+   "footer",
+   "nav[Footer]"
+  ],
+  "headings": [
+   "H1 The 30-day sneaker care plan",
+   "H2 Latest articles",
+   "H3 How to clean white leather sneakers ",
+   "H3 Finding your fit in UK sizes 6 to 11",
+   "H3 Running vs lifestyle sneakers: what ",
+   "H3 Five lacing patterns that fix fit pr",
+   "H3 How to store sneakers so they last l",
+   "H3 Break in new sneakers in one week",
+   "H2 Cleaning methods compared",
+   "H2 Questions readers ask",
+   "H3 How often should I clean my sneakers",
+   "H3 Can I dry them in the sun?",
+   "H3 Do insoles change my size?"
+  ],
+  "imgsWithAlt": "7/7",
+  "smallTargets": [],
+  "interactiveCount": 26,
+  "textSpacing": {
+   "hScroll": false,
+   "heroClipped": false
+  },
+  "jsErrors": [],
+  "reducedMotion": "0s",
+  "mobileMenu": {
+   "expanded": "true",
+   "navVisible": true,
+   "escExpanded": "false",
+   "escFocus": "menuBtn"
+  },
+  "zoomBlocked": false,
+  "reflow320": {
+   "hScroll": false,
+   "scrollWidth": 320
+  }
+ }
+}

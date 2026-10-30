@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoleStyle Journal: sneaker care, sizing and fit guides</title>
+<meta name="description" content="Practical guides on cleaning, sizing and fitting sneakers, written in plain language.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="accordion.css">
+</head>
+<body>
+<!-- WCAG 2.4.1: lets keyboard users jump past the header -->
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="top">
+  <a class="logo" href="#main" aria-label="SoleStyle Journal, back to top">SoleStyle <span>Journal</span></a>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav">
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <span class="sr">Menu</span>
+  </button>
+
+  <nav class="nav" id="siteNav" aria-label="Main">
+    <ul>
+      <li><a href="#main" aria-current="page">Home</a></li>
+      <li class="has-sub">
+        <button class="sub-btn" id="guidesBtn" type="button" aria-expanded="false" aria-controls="guidesMenu">Guides
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12" width="12" height="12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <ul class="sub" id="guidesMenu" hidden>
+          <li><a href="#latest" data-jump="care">Care</a></li>
+          <li><a href="#latest" data-jump="sizing">Sizing</a></li>
+          <li><a href="#latest" data-jump="guides">Fit and guides</a></li>
+        </ul>
+      </li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+  </nav>
+
+  <form class="search" role="search" id="searchForm">
+    <label class="sr" for="q">Search articles</label>
+    <input type="search" id="q" name="q" placeholder="Search articles" autocomplete="off">
+    <button type="submit"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="sr">Search</span></button>
+  </form>
+
+  <button class="btn" id="openSub" type="button" aria-haspopup="dialog">Subscribe</button>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="heroT">
+    <img src="img/hero.svg" width="640" height="400" alt="Illustration of a clean white sneaker with orange laces on a warm orange background">
+    <div class="hero-text">
+      <p class="kicker">Featured guide</p>
+      <h1 id="heroT">The 30-day sneaker care plan</h1>
+      <p>A simple weekly routine that keeps your pairs looking new for years.</p>
+      <a class="btn" href="#latest">Start the care plan</a>
+    </div>
+  </section>
+
+  <section class="wrap" id="latest" aria-labelledby="latestT">
+    <h2 id="latestT">Latest articles</h2>
+    <div class="chips" role="group" aria-label="Filter articles by topic">
+      <button type="button" class="chip" data-cat="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-cat="care" aria-pressed="false">Care</button>
+      <button type="button" class="chip" data-cat="sizing" aria-pressed="false">Sizing</button>
+      <button type="button" class="chip" data-cat="guides" aria-pressed="false">Guides</button>
+    </div>
+    <p class="count" id="count" role="status">Showing 6 of 6 articles</p>
+    <p class="empty" id="empty" hidden>No articles match your search. Try a different word or choose All.</p>
+
+    <ul class="grid" id="grid">
+      <li class="card" data-cat="care"><img src="img/a1.svg" width="640" height="400" loading="lazy" alt="White leather sneaker with beige sole"><p class="tag">Care</p><h3><a href="#main">How to clean white leather sneakers safely</a></h3><p>Soft brush, mild soap and the one thing you should never put in the dryer.</p></li>
+      <li class="card" data-cat="sizing"><img src="img/a2.svg" width="640" height="400" loading="lazy" alt="Blue sneaker with a black sole"><p class="tag">Sizing</p><h3><a href="#main">Finding your fit in UK sizes 6 to 11</a></h3><p>Measure at the end of the day and leave a thumb of space at the toe.</p></li>
+      <li class="card" data-cat="guides"><img src="img/a3.svg" width="640" height="400" loading="lazy" alt="Purple sneaker with yellow laces"><p class="tag">Guides</p><h3><a href="#main">Running vs lifestyle sneakers: what differs</a></h3><p>Cushioning, weight and outsole grip explained in plain words.</p></li>
+      <li class="card" data-cat="sizing"><img src="img/a4.svg" width="640" height="400" loading="lazy" alt="Red sneaker with a cream sole"><p class="tag">Sizing</p><h3><a href="#main">Five lacing patterns that fix fit problems</a></h3><p>Heel slip, narrow toe box or high arch: there is a lacing fix for each.</p></li>
+      <li class="card" data-cat="care"><img src="img/a5.svg" width="640" height="400" loading="lazy" alt="Green sneaker with white laces"><p class="tag">Care</p><h3><a href="#main">How to store sneakers so they last longer</a></h3><p>Shape, airflow and light: three simple rules for your shoe shelf.</p></li>
+      <li class="card" data-cat="guides"><img src="img/a6.svg" width="640" height="400" loading="lazy" alt="Black sneaker with orange laces and a white sole"><p class="tag">Guides</p><h3><a href="#main">Break in new sneakers in one week</a></h3><p>A short plan that avoids blisters and sore heels.</p></li>
+    </ul>
+  </section>
+
+  <section class="wrap" aria-labelledby="tblT">
+    <h2 id="tblT">Cleaning methods compared</h2>
+    <div class="table-wrap" role="region" aria-label="Cleaning methods table, scrollable" tabindex="0">
+      <table>
+        <caption>Three common ways to clean sneakers, with the time each takes and the risk of damage</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">Best for</th><th scope="col">Time</th><th scope="col">Risk of damage</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Soft brush and soap</th><td>Leather, canvas</td><td>10 min</td><td><span class="risk low">&#10003; Low</span></td></tr>
+          <tr><th scope="row">Magic eraser</th><td>Rubber soles</td><td>5 min</td><td><span class="risk mid">&#9651; Medium</span></td></tr>
+          <tr><th scope="row">Washing machine</th><td>Mesh running shoes</td><td>40 min</td><td><span class="risk high">&#10005; High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap" id="faq" aria-labelledby="faqT">
+    <h2 id="faqT">Questions readers ask</h2>
+    <div class="acc" data-accordion data-open="none">
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">How often should I clean my sneakers?</button></h3><div class="acc-panel"><div class="acc-inner"><p>A light brush after every few wears and a proper clean once a month is enough for most pairs.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Can I dry them in the sun?</button></h3><div class="acc-panel"><div class="acc-inner"><p>Dry them in shade with newspaper inside. Direct sun can yellow white soles and crack leather.</p></div></div></div>
+      <div class="acc-item"><h3 class="acc-heading"><button type="button" class="acc-trigger">Do insoles change my size?</button></h3><div class="acc-panel"><div class="acc-inner"><p>Thick insoles can take half a size of room, so try them with the insole you plan to wear.</p></div></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2026 SoleStyle Journal</p>
+  <nav aria-label="Footer"><ul><li><a href="#main">Privacy</a></li><li><a href="#main">Terms</a></li><li><a href="#main">Contact</a></li></ul></nav>
+</footer>
+
+<!-- Native modal dialog: traps focus, closes with Esc, returns focus to the opener -->
+<dialog id="subDialog" aria-labelledby="subT" aria-describedby="subD">
+  <form id="subForm" novalidate>
+    <button class="x" type="button" id="closeSub" aria-label="Close subscribe dialog"><span aria-hidden="true">&times;</span></button>
+    <h2 id="subT">Weekly care tip</h2>
+    <p id="subD">One short sneaker tip in your inbox every Monday.</p>
+    <label for="email">Email address</label>
+    <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="emailErr">
+    <p class="err" id="emailErr" hidden></p>
+    <div class="row"><button class="btn" type="submit">Subscribe</button><button class="btn ghost" type="button" id="cancelSub">Cancel</button></div>
+    <p class="ok" id="subOk" role="status"></p>
+  </form>
+</dialog>
+
+<script src="accordion.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

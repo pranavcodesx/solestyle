@@ -1,0 +1,82 @@
+{
+ "url": "http://127.0.0.1:8765/before/index.html",
+ "axe": "4.14.0",
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "tags": [
+    "wcag143"
+   ],
+   "nodes": 50,
+   "example": "<div class=\"logo\">SoleStyle <span>Journal</span></div>"
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "tags": [
+    "wcag311"
+   ],
+   "nodes": 1,
+   "example": "<html>"
+  },
+  {
+   "id": "image-alt",
+   "impact": "critical",
+   "help": "Images must have alternative text",
+   "tags": [
+    "wcag111"
+   ],
+   "nodes": 7,
+   "example": "<img src=\"img/hero.svg\">"
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "help": "Document should have one main landmark",
+   "tags": [],
+   "nodes": 1,
+   "example": "<html>"
+  },
+  {
+   "id": "meta-viewport",
+   "impact": "moderate",
+   "help": "Zooming and scaling must not be disabled",
+   "tags": [
+    "wcag144"
+   ],
+   "nodes": 1,
+   "example": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">"
+  },
+  {
+   "id": "page-has-heading-one",
+   "impact": "moderate",
+   "help": "Page should contain a level-one heading",
+   "tags": [],
+   "nodes": 1,
+   "example": "<html>"
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "help": "All page content should be contained by landmarks",
+   "tags": [],
+   "nodes": 18,
+   "example": "<div class=\"logo\">SoleStyle <span>Journal</span></div>"
+  },
+  {
+   "id": "tabindex",
+   "impact": "serious",
+   "help": "Elements should not have tabindex greater than zero",
+   "tags": [],
+   "nodes": 1,
+   "example": "<div class=\"sub-btn\" onclick=\"openModal()\" tabindex=\"3\">Subscribe</div>"
+  }
+ ],
+ "passes": 18,
+ "incomplete": [
+  "color-contrast"
+ ]
+}
